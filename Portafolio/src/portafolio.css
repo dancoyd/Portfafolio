@@ -1,5 +1,5 @@
 :root {
-  --color-bg: #f0f4f8;
+  --color-bg: #eeeefd;
   --color-primary: #007acc;
   --color-secondary: #333;
   --color-accent: #00c896;
@@ -9,75 +9,85 @@ body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
   background-color: var(--color-bg);
+  background-image: radial-gradient(circle, #b0aeae 1px, transparent 1px);
+  background-size: 18px 18px;
   color: var(--color-secondary);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
 }
 
 .portafolio-container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 2rem;
+  width: 100%;
+  max-width: 1400px; /* antes 900px */
+  padding: 4rem 4rem; /* más espacio horizontal */
   animation: fadeIn 1s ease-in;
 }
+
+
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-section {
-  margin-bottom: 3rem;
+
+.seccion {
+  margin-bottom: 5rem;
+  width: 100%;
+}
+
+
+h1 {
+  font-size: clamp(3rem, 7vw, 5rem); /* más grande */
+  color: var(--color-primary);
+  margin-bottom: 1rem;
 }
 
 h2 {
-  font-size: 1.8rem;
+  font-size: clamp(2rem, 5vw, 3rem); /* más grande */
   color: var(--color-primary);
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
   position: relative;
 }
 
 h2::after {
   content: '';
   display: block;
-  width: 50px;
-  height: 3px;
+  width: 80px; /* más largo */
+  height: 4px;
   background-color: var(--color-accent);
-  margin-top: 5px;
+  margin-top: 8px;
   animation: growLine 0.6s ease-out;
 }
 
 @keyframes growLine {
   from { width: 0; }
-  to { width: 50px; }
+  to { width: 80px; }
 }
 
-.presentacion h1 {
-  font-size: 2.5rem;
-  color: var(--color-primary);
-  margin-bottom: 0.5rem;
-}
-
-.presentacion p {
-  font-size: 1.2rem;
-  color: #555;
-}
-
-.skills ul,
-.logros ul,
-.idiomas ul {
+ul {
   list-style: none;
   padding-left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
 }
 
-.skills li,
-.logros li,
-.idiomas li {
+li {
   background-color: var(--color-accent);
   color: white;
-  padding: 0.5rem 1rem;
-  margin-bottom: 0.5rem;
-  border-radius: 5px;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
   animation: slideIn 0.5s ease forwards;
+  min-width: 200px;
+  text-align: center;
 }
+
+
 
 @keyframes slideIn {
   from { transform: translateX(-30px); opacity: 0; }
@@ -86,11 +96,16 @@ h2::after {
 
 .card {
   background-color: white;
-  border-left: 5px solid var(--color-primary);
-  padding: 1rem;
-  margin-bottom: 1rem;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  border-left: 6px solid var(--color-primary);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
   transition: transform 0.3s ease;
+  font-size: 1.05rem;
+  width: 100%;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .card:hover {
@@ -108,11 +123,13 @@ h2::after {
 
 .footer {
   text-align: center;
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: #777;
+  margin-top: 3rem;
 }
-body {
-  background-color: #d5d8ff;
-  background-image: radial-gradient(circle, #b0aeae 1px, transparent 1px);
-  background-size: 18px 18px;
+
+.imagen-placeholder {
+  background-color: #ccc;
+  height: 220px;
+  border-radius: 12px;
 }
