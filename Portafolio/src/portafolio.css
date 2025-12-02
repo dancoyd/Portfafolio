@@ -1,143 +1,193 @@
-:root {
-  --color-bg: #eeeefd;
-  --color-primary: #007acc;
-  --color-secondary: #333;
-  --color-accent: #00c896;
-}
+  :root {
+    --color-bg: #eeeefd;
+    --color-primary: #007acc;
+    --color-secondary: #333;
+    --color-accent: #00c896;
+  }
 
-body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: var(--color-bg);
-  background-image: radial-gradient(circle, #b0aeae 1px, transparent 1px);
-  background-size: 18px 18px;
-  color: var(--color-secondary);
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--color-bg);
+    background-image: radial-gradient(circle, #b0aeae 1px, transparent 1px);
+    background-size: 18px 18px;
+    color: var(--color-secondary);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+  }
+
+  .portafolio-container {
+    width: 100%;
+    max-width: 1400px; /* antes 900px */
+    padding: 4rem 4rem; /* más espacio horizontal */
+    animation: fadeIn 1s ease-in;
+  }
+
+
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+
+  .seccion {
+    margin-bottom: 5rem;
+    width: 100%;
+  }
+
+
+  h1 {
+    font-size: clamp(3rem, 7vw, 5rem); /* más grande */
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    font-size: clamp(2rem, 5vw, 3rem); /* más grande */
+    color: var(--color-primary);
+    margin-bottom: 1.2rem;
+    position: relative;
+  }
+
+  h2::after {
+    content: '';
+    display: block;
+    width: 80px; /* más largo */
+    height: 4px;
+    background-color: var(--color-accent);
+    margin-top: 8px;
+    animation: growLine 0.6s ease-out;
+  }
+
+  @keyframes growLine {
+    from { width: 0; }
+    to { width: 80px; }
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  li {
+    background-color: var(--color-accent);
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    animation: slideIn 0.5s ease forwards;
+    min-width: 200px;
+    text-align: center;
+  }
+
+
+
+  @keyframes slideIn {
+    from { transform: translateX(-30px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+
+  .card {
+    background-color: white;
+    border-left: 6px solid var(--color-primary);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    font-size: 1.05rem;
+    width: 100%;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .card:hover {
+    transform: scale(1.02);
+  }
+
+  .contacto a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .contacto a:hover {
+    text-decoration: underline;
+  }
+
+  .footer {
+    text-align: center;
+    font-size: 1rem;
+    color: #777;
+    margin-top: 3rem;
+  }
+
+  .imagen-placeholder {
+    background-color: #ccc;
+    height: 220px;
+    border-radius: 12px;
+  }
+  .imagen-portfolio {
+    width: 100%;            /* ocupa todo el ancho del contenedor */
+    height: 220px;           /* mantiene la proporción original */
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    margin-top: 1.5rem;
+    display: block;
+  }
+  .intro {
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  min-height: 100vh;
+  align-items: center;
+  gap: 20px;
 }
 
-.portafolio-container {
-  width: 100%;
-  max-width: 1400px; /* antes 900px */
-  padding: 4rem 4rem; /* más espacio horizontal */
-  animation: fadeIn 1s ease-in;
+.profile-pic img {
+  width: 250px;
+  height: 250px;
+  border-radius: 40%; /* redonda */
+  object-fit: cover;
+  border: 3px solid var(--color-primary);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+   margin-top: px; /* 👈 mueve la imagen un poco más abajo */
+   object-position: center;
+
 }
-
-
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-
-.seccion {
-  margin-bottom: 5rem;
-  width: 100%;
-}
-
-
-h1 {
-  font-size: clamp(3rem, 7vw, 5rem); /* más grande */
-  color: var(--color-primary);
-  margin-bottom: 1rem;
-}
-
-h2 {
-  font-size: clamp(2rem, 5vw, 3rem); /* más grande */
-  color: var(--color-primary);
-  margin-bottom: 1.2rem;
-  position: relative;
-}
-
-h2::after {
-  content: '';
-  display: block;
-  width: 80px; /* más largo */
-  height: 4px;
-  background-color: var(--color-accent);
-  margin-top: 8px;
-  animation: growLine 0.6s ease-out;
-}
-
-@keyframes growLine {
-  from { width: 0; }
-  to { width: 80px; }
-}
-
-ul {
-  list-style: none;
-  padding-left: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
-}
-
-li {
-  background-color: var(--color-accent);
-  color: white;
-  padding: 1rem 1.5rem;
-  border-radius: 8px;
-  font-size: 1.1rem;
-  animation: slideIn 0.5s ease forwards;
-  min-width: 200px;
-  text-align: center;
-}
-
-
-
-@keyframes slideIn {
-  from { transform: translateX(-30px); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
-}
-
 .card {
   background-color: white;
   border-left: 6px solid var(--color-primary);
   padding: 1.5rem;
   margin-bottom: 2rem;
   box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
+  transition: all 0.4s ease;
   font-size: 1.05rem;
   width: 100%;
   max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
+  cursor: pointer;
+  overflow: hidden;
+  max-height: 70px; /* cerrado */
 }
 
-.card:hover {
-  transform: scale(1.02);
+.card.open {
+  max-height: 500px; /* abierto */
 }
 
-.contacto a {
-  color: var(--color-primary);
-  text-decoration: none;
+.card h3 {
+  margin: 0;
 }
 
-.contacto a:hover {
-  text-decoration: underline;
+.card p {
+  opacity: 0;
+  transition: opacity 0.4s ease;
 }
 
-.footer {
-  text-align: center;
-  font-size: 1rem;
-  color: #777;
-  margin-top: 3rem;
-}
-
-.imagen-placeholder {
-  background-color: #ccc;
-  height: 220px;
-  border-radius: 12px;
-}
-.imagen-portfolio {
-  width: 100%;            /* ocupa todo el ancho del contenedor */
-  height: 220px;           /* mantiene la proporción original */
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  margin-top: 1.5rem;
-  display: block;
+.card.open p {
+  opacity: 1;
 }

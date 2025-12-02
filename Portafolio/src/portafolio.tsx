@@ -1,16 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './portafolio.css';
 
+const Card: React.FC<{ title: string; text: string; defaultOpen?: boolean }> = ({ title, text, defaultOpen = false }) => {
+  const [open, setOpen] = useState(defaultOpen);
+
+  return (
+    <div className={`card ${open ? 'open' : ''}`} onClick={() => setOpen(!open)}>
+      <h3>{title}</h3>
+      <p>{text}</p>
+    </div>
+  );
+};
+
 const Portafolio: React.FC = () => {
-  
   return (
     <main className="portafolio-container">
-      <img src="/portfolio.jpg" alt="Foto de Dan" className="imagen-portfolio" />
       <section className="presentacion seccion">
-        <div className="lado-izquierdo">
-          <h1>Hola, soy Dan</h1>
-          <p></p>
+        <div className="lado-izquierdo intro">
+          <div className="texto">
+            <h1>Hola, soy Dan</h1>
+            <p></p>
+          </div>
+          <div className="profile-pic">
+            {/* Aquí va tu foto personal */}
+            <img src="/danpertfolio.jpeg" alt="Foto de Dan" />
+          </div>
         </div>
+
         <div className="lado-derecho">
           <h2>Sobre mí</h2>
           <ul>
@@ -32,18 +48,19 @@ const Portafolio: React.FC = () => {
       <section className="experiencias seccion">
         <div className="lado-izquierdo">
           <h2>Experiencias</h2>
-          <div className="card">
-            <h3>Experiencia de trabajo con AirBnb</h3>
-            <p>En 2024 trabajé con una inmobiliaria de alquileres temporales. Tenía varias tareas como responder mensajes, recibir inquilinos y cobrar alquileres. Además tuve que saber resolver problemas del día a día de los inquilinos.</p>
-          </div>
-          <div className="card">
-            <h3>Desarrollo de Mercado Lite</h3>
-            <p>En mi secundario tuve la oportunidad de crear una app para ayudar a personas con neurodivergencias a usar billeteras virtuales.</p>
-          </div>
-          <div className="card">
-            <h3>Pasantía de barbería</h3>
-            <p>Tuve la oportunidad de trabajar en una barbería y tener la experiencia de lo que es un oficio. Esta pasantía me brindó varias enseñanzas, como la responsabilidad de cumplir con horario. También aprendí del trabajo en equipo además de la habilidad de cortar pelo.</p>
-          </div>
+          <Card
+            title="Experiencia de trabajo con AirBnb"
+            text="En 2024 trabajé con una inmobiliaria de alquileres temporales. Tenía varias tareas como responder mensajes, recibir inquilinos y cobrar alquileres. Además tuve que saber resolver problemas del día a día de los inquilinos."
+            defaultOpen={true}   // 👈 esta queda abierta siempre
+          />
+          <Card
+            title="Desarrollo de Mercado Lite"
+            text="En mi secundario tuve la oportunidad de crear una app para ayudar a personas con neurodivergencias a usar billeteras virtuales."
+          />
+          <Card
+            title="Pasantía de barbería"
+            text="Tuve la oportunidad de trabajar en una barbería y tener la experiencia de lo que es un oficio. Esta pasantía me brindó varias enseñanzas, como la responsabilidad de cumplir con horario. También aprendí del trabajo en equipo además de la habilidad de cortar pelo."
+          />
         </div>
       </section>
 
@@ -69,20 +86,28 @@ const Portafolio: React.FC = () => {
         </div>
       </section>
 
-      <section className="educacion seccion">
-        <div className="lado-derecho">
-          <h2>Educación</h2>
-          <div className="card">
-            <h3>Secundario Técnico</h3>
-            <p>Orientación en programación y diseño web. Enfoque en proyectos prácticos.</p>
-          </div>
-        </div>
-      </section>
+<section className="educacion seccion">
+  <div className="lado-derecho">
+    <h2>Educación</h2>
+    <Card
+      title="Secundario Técnico"
+      text="El secundario lo hice en la ORT. En mis anos de secundario tuve que elgir una orientación y elegi la de Tecnologia de la informacion y comunicacion(TIC)."
+    />
+  </div>
+</section>
+
+
 
       <section className="contacto seccion">
         <div className="lado-izquierdo">
           <h2>Contacto</h2>
-          <p>Podés encontrarme en <a href="https://github.com/dancoyd" target="_blank" rel="noopener noreferrer">GitHub</a> o escribirme a <strong>dangertrudis@outlook.com</strong></p>
+          <p>
+            Podés encontrarme en{' '}
+            <a href="https://github.com/dancoyd" target="_blank" rel="noopener noreferrer">
+              GitHub
+            </a>{' '}
+            o escribirme a <strong>dangertrudis@outlook.com</strong>
+          </p>
         </div>
       </section>
 
